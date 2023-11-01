@@ -19,6 +19,13 @@ RUN dnf config-manager --add-repo https://rtx.pub/rpm/rtx.repo
 RUN dnf -y copr enable atim/starship
 RUN dnf -y copr enable varlad/helix
 
+# Install efm-langserver
+RUN dnf -y install golang
+RUN GOPATH=/usr/local go install github.com/mattn/efm-langserver@latest
+
+# Install user defaults
+COPY default.useradd /etc/default/useradd
+
 # Install extra packages
 COPY extra-packages /
 RUN dnf -y install $(<extra-packages)
