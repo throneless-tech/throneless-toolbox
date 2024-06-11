@@ -1,7 +1,7 @@
-FROM registry.fedoraproject.org/fedora-toolbox:39
+FROM registry.fedoraproject.org/fedora-toolbox:40
 
 ARG NAME=throneless-toolbox
-ARG VERSION=39
+ARG VERSION=40
 LABEL com.github.containers.toolbox="true" \
       com.redhat.component="$NAME" \
       name="$NAME" \
@@ -15,7 +15,7 @@ COPY README.md /
 RUN dnf -y upgrade
 
 # Install necessary extra repos
-RUN dnf config-manager --add-repo https://rtx.pub/rpm/rtx.repo
+RUN dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
 RUN dnf -y copr enable atim/starship
 RUN dnf -y copr enable varlad/helix
 
