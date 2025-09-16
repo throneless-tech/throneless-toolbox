@@ -1,7 +1,7 @@
 FROM registry.fedoraproject.org/fedora-toolbox:40
 
 ARG NAME=throneless-toolbox
-ARG VERSION=40
+ARG VERSION=42
 LABEL com.github.containers.toolbox="true" \
       com.redhat.component="$NAME" \
       name="$NAME" \
@@ -18,10 +18,6 @@ RUN dnf -y upgrade
 RUN dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
 RUN dnf -y copr enable atim/starship
 RUN dnf -y copr enable varlad/helix
-
-# Install efm-langserver
-RUN dnf -y install golang
-RUN GOPATH=/usr/local go install github.com/mattn/efm-langserver@latest
 
 # Install user defaults
 COPY default.useradd /etc/default/useradd
