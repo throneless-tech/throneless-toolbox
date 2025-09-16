@@ -15,7 +15,7 @@ COPY README.md /
 RUN dnf -y upgrade
 
 # Install necessary extra repos
-RUN dnf config-manager --add-repo https://mise.jdx.dev/rpm/mise.repo
+RUN dnf config-manager addrepo --from-repofile=https://mise.jdx.dev/rpm/mise.repo
 RUN dnf -y copr enable atim/starship
 RUN dnf -y copr enable varlad/helix
 
