@@ -20,7 +20,6 @@ RUN wget https://github.com/superradcompany/microsandbox/releases/latest/downloa
       tar -zxvf microsandbox-linux-x86_64.tar.gz && \
       mv msb /usr/local/bin/ && \
       mv libkrunfw.so* /usr/local/lib/ && \
-      mv libmicrosandbox_go_ffi.so /usr/local/lib/ && \
       chmod +x /usr/local/bin/msb && \
       rm microsandbox-linux-x86_64.tar.gz
 
