@@ -15,7 +15,7 @@ COPY README.md /
 RUN dnf -y upgrade
 
 # Install microsandbox
-RUN dnf -y install wget protobuf-compiler
+RUN dnf -y install wget protobuf-compiler cmake clang-devel
 RUN wget https://github.com/superradcompany/microsandbox/releases/latest/download/microsandbox-linux-x86_64.tar.gz && \
       tar -zxvf microsandbox-linux-x86_64.tar.gz && \
       mv msb /usr/local/bin/ && \
